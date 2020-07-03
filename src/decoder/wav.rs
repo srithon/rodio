@@ -63,7 +63,7 @@ where
                 f32_to_i16(value.unwrap_or(0.0))
             }),
             (SampleFormat::Int, 8) => self.reader.samples().next().map(|value| {
-                self.samples.read += 1;
+                self.samples_read += 1;
                 i8_to_i16(value.unwrap_or(0))
             }),
             (SampleFormat::Int, 16) => self.reader.samples().next().map(|value| {
@@ -177,6 +177,6 @@ fn i24_to_i16(i: i32) -> i16 {
 }
 
 /// Returns an 8 bit WAV int as an i16.
-fn i24_to_i16(i: i8) -> i16 {
+fn i8_to_i16(i: i8) -> i16 {
     i as i16
 }
