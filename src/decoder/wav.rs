@@ -179,5 +179,5 @@ fn i24_to_i16(i: i32) -> i16 {
 /// Returns an 8 bit WAV int as an i16.
 fn i8_to_i16(i: i8) -> i16 {
     // TODO consider adding random noise to fill the sound?
-    i16::MAX / i8::MAX * i
+    i16::MAX / std::i8::MAX * i
 }
