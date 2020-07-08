@@ -186,5 +186,14 @@ fn i8_to_i16(i: i8) -> i16 {
     }
     else {
         std::i16::MAX / std::i8::MAX as i16 * i as i16
+#[cfg(test)]
+mod internal_wav_tests {
+    use super::*;
+
+    #[test]
+    fn test_i8_upscaling() {
+        for i in std::i8::MIN..=std::i8::MAX {
+            println!("{} -> {}", i, i8_to_i16(i));
+        }
     }
 }
