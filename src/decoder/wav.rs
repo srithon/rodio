@@ -179,13 +179,14 @@ fn i24_to_i16(i: i32) -> i16 {
 /// Returns an 8 bit WAV int as an i16.
 fn i8_to_i16(i: i8) -> i16 {
     // TODO consider adding random noise to fill the sound?
-    // formula translates +127 to 32768, which is one higher than the max range of i16
-    // have a special case for this
-    if i == std::i8::MAX {
-        std::i16::MAX
+    if i == std::i8::MIN {
+        std::i16::MIN
     }
     else {
         std::i16::MAX / std::i8::MAX as i16 * i as i16
+    }
+}
+
 #[cfg(test)]
 mod internal_wav_tests {
     use super::*;
